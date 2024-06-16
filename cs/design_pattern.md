@@ -47,8 +47,71 @@ class Singleton {
 
 <br></br>
 
-## Factory 패턴이란?
+## 😵 Factory 패턴이란?
+- 객체 생성을 위한 인터페이스를 정의하고, 하위 클래스에서 객체 생성에 관한 구체적인 내용을 결정하는 패턴
+- 상위 클래스와 하위 클래스가 분리되기 때문에 느슨한 결합을 가진다.
+- 객체 생성 로직을 캡슐화하여 코드의 가독성을 높이고 리팩터링 시에도 한 곳만 고칠 수 있어서 유지 보수가 용이하다.
 
+[팩토리 패턴](https://velog.io/@broccolism/%EB%82%B4%EA%B0%80-%EC%95%8C%EA%B3%A0-%EC%9E%88%EB%8D%98%EA%B2%8C-%EA%B0%80%EC%A7%9C-%ED%8C%A9%ED%86%A0%EB%A6%AC-%ED%8C%A8%ED%84%B4%EC%9D%B4%EC%97%88%EB%8D%98-%EC%8D%B0)
+
+<br></br>
+
+## Iterator 패턴이란?
+- 이터레이터(iterator)를 사용하여 복잡하게 얽혀있는 자료 컬렉션(collection)의 요소들에 접근하는 방식을 공통화 하는 패턴
+- 컬렉션에 상관없이 하나의 인터페이스로 순회가 가능하다.
+- 컬렉션을 순회하는 다양한 방법을 지원할 수 있다.
+- 컬렉션의 복잡한 내부 구조를 클라이언트로부터 숨길 수 있다.
+- 클래스가 늘어나고 복잡도가 증가한다.
+
+[이터레이터 패턴](https://inpa.tistory.com/entry/GOF-%F0%9F%92%A0-%EB%B0%98%EB%B3%B5%EC%9E%90Iterator-%ED%8C%A8%ED%84%B4-%EC%99%84%EB%B2%BD-%EB%A7%88%EC%8A%A4%ED%84%B0%ED%95%98%EA%B8%B0)
+
+```dart
+import 'dart:collection';
+
+class Post {
+  String title; // 게시글 제목
+  DateTime date; // 게시글 발행일
+
+  Post(this.title, this.date);
+}
+
+class Board {
+  // 게시글을 리스트 집합 객체로 저장 관리
+  List<Post> posts = [];
+
+  void addPost(String title, DateTime date) {
+    posts.add(Post(title, date));
+  }
+
+  List<Post> getPosts() {
+    return posts;
+  }
+}
+
+void main() {
+  // 1. 게시판 생성
+  Board board = Board();
+
+  // 2. 게시판에 게시글을 포스팅
+  board.addPost("디자인 패턴 강의 리뷰", DateTime(2020, 8, 30));
+  board.addPost("게임 하실분", DateTime(2020, 2, 6));
+  board.addPost("이거 어떻게 하나요?", DateTime(2020, 6, 1));
+  board.addPost("이거 어떻게 하나요?", DateTime(2021, 12, 22));
+
+  List<Post> posts = board.getPosts();
+
+  // 3. 게시글 발행 순서대로 조회하기
+  for (var post in posts) {
+    print('${post.title} / ${post.date}');
+  }
+
+  // 4. 게시글 날짜별로 조회하기
+  posts.sort((p1, p2) => p1.date.compareTo(p2.date)); // 집합체를 날짜별로 정렬
+  for (var post in posts) {
+    print('${post.title} / ${post.date}');
+  }
+}
+```
 
 
 
@@ -76,10 +139,13 @@ class Singleton {
 - [ ]  라이브러리와 프레임워크의 차이
 - [ ]  의존성이란?
 - [ ]  응집도와 결합도
-- [ ]  의존성 주입(DI) 패턴이란?
-- 메인 모듈이 '직접' 다른 하위 모듈에 대한 의존성을 주기보다는 중간에 의존성 주입자(dependency injector)를 놓아 메인 모듈이 '간접'적으로 의존성을 주입하는 방식
 - [ ]  (Service Locator 패턴이란?)
 - [ ]  (DI와 서비스 로케이터 비교)
 - [ ]  프록시 서버란?
 - [ ]  (포워드 프록시와 리버스 프록시 비교)
 - [ ]  Adapter 패턴이란?
+<br></br>
+
+## 기타
+### 의존성 주입(DI) 패턴이란?
+- 메인 모듈이 '직접' 다른 하위 모듈에 대한 의존성을 주기보다는 중간에 의존성 주입자(dependency injector)를 놓아 메인 모듈이 '간접'적으로 의존성을 주입하는 방식
