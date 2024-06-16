@@ -7,9 +7,6 @@
 
 <br>
 
-### Iterable 이란?
-- 반복 가능한, 순회 가능한 객체를 말한다.
-
 [🔗 이터레이터 패턴](https://inpa.tistory.com/entry/GOF-%F0%9F%92%A0-%EB%B0%98%EB%B3%B5%EC%9E%90Iterator-%ED%8C%A8%ED%84%B4-%EC%99%84%EB%B2%BD-%EB%A7%88%EC%8A%A4%ED%84%B0%ED%95%98%EA%B8%B0)
 
 ### 문제의 코드
@@ -217,3 +214,11 @@ void printPosts(Iterable<Post> posts) {
 * 리스트의 직접적인 노출을 막았다.
 #### 유연성
 * 순회 전략을 각 객체로 나눔으로써 다양한 순서로 데이터를 접근할 수 있다.
+
+<br></br>
+
+## Iterable 이란?
+- 반복 가능한, 순회 가능한 컬렉션을 나타내는 추상 클래스 또는 인터페이스를 말한다.
+- 'map', 'where', 'forEach', 'reduce'등의 고차함수 메서드를 제공한다.
+- 'iterator' getter를 제공한다.
+- 'iterator'의 'hasNext'와 'next'로 컬렉션의 요소에 접근할 수 있다.
