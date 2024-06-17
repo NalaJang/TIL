@@ -15,65 +15,31 @@
 
 <br></br>
 
-## Singleton 패턴이란?
-- 하나의 클래스에 오직 하나의 인스턴스만 가지는 패턴
-- 하나의 인스턴스를 만들어 놓고 해당 인스턴스를 공유하며 사용하기 때문에 인스턴스 생성할 때 드는 비용이 줄어드는 장점이 있다.
-- 보통 데이터베이스 연결 모듈에 많이 사용한다.
+* Singleton 패턴이란?
+[Singleton 패턴](https://github.com/NalaJang/TIL/blob/main/cs/desgin_pattern/Singleton%20Pattern.md)
 
-### 단점
-- TDD(Test Driven Development)의 걸림돌이 된다. 단위 테스트는 테스트가 서로 독립적이어야 하며 어떤 순서로든 실행할 수 있어햐 한다.  
-하지만 싱글통 패턴은 미리 생성된 하나의 인스턴스를 기반으로 구현하는 패턴이므로 각 테스트마다 '독립적인' 인스턴스를 만들기 어렵다.
-- 모듈 간의 결합을 강하게 만들어 의존성이 높다. -> 의존성 주입(DI)을 통해 모듈 간의 결합을 느슨하게 만들 수 있다.
+* 😵 Factory 패턴이란?
+[Factory 패턴](https://github.com/NalaJang/TIL/blob/main/cs/desgin_pattern/Factory%20Pattern.md)
 
-### Dart에서의 싱글톤
-```dart
-class Singleton {
-  // Dart에선 생성자가 없을 경우 자동으로 public 한 생성자를 만든다.
-  // 이를 막기 위해 빈 private 생성자를 만든다.
-  Singleton._privateConstructor();
-
-  // 생성자를 호출하고 반환된 Singleton 인스턴스를 _instance 변수에 할당
-  static final Singleton _instance = Singleton._privateConstructor();
-
-  // Singleton() 호출 시에 _instance 변수를 반환
-  factory Singleton() {
-    return _instance;
-  }
-}
-
-// _privateConstructor : 이름은 상관없다.
-
-```
-
-<br></br>
-
-## 😵 Factory 패턴이란?
-- 객체 생성을 위한 인터페이스를 정의하고, 하위 클래스에서 객체 생성에 관한 구체적인 내용을 결정하는 패턴
-- 상위 클래스와 하위 클래스가 분리되기 때문에 느슨한 결합을 가진다.
-- 객체 생성 로직을 캡슐화하여 코드의 가독성을 높이고 리팩터링 시에도 한 곳만 고칠 수 있어서 유지 보수가 용이하다.
-
-[팩토리 패턴](https://velog.io/@broccolism/%EB%82%B4%EA%B0%80-%EC%95%8C%EA%B3%A0-%EC%9E%88%EB%8D%98%EA%B2%8C-%EA%B0%80%EC%A7%9C-%ED%8C%A9%ED%86%A0%EB%A6%AC-%ED%8C%A8%ED%84%B4%EC%9D%B4%EC%97%88%EB%8D%98-%EC%8D%B0)
-
-<br></br>
-
-## Iterator 패턴이란?
+* Iterator 패턴이란?
 [Iterator 패턴](https://github.com/NalaJang/TIL/blob/main/cs/desgin_pattern/Iterator%20Pattern.md)
+
+* MVC,MVP,MVVM 패턴이란?
+[MVC,MVP,MVVM 패턴](https://github.com/NalaJang/TIL/blob/main/cs/desgin_pattern/MVC%2CMVP%2CMVVM%20Pattern.md)
+
+* Observer 패턴이란?
+[Observer 패턴](https://github.com/NalaJang/TIL/blob/main/cs/desgin_pattern/Observer%20Pattern.md)
+
 
 - [ ]  ~란? = 개념 + 존재이유/목적 + 동작원리/구조/구현방법 + 사용예시
 - [ ]  Facotry 패턴이란?
 - [ ]  (추상 Factory  패턴이란?)
 - [ ]  Strategy(전략) 패턴이란?
-- [ ]  Observer(관찰자) 패턴이란?
+
 - [ ]  Proxy 패턴이란?
-- [ ]  Iterator 란?
-- [ ]  Iterable 이란?
-- [ ]  MVC 패턴이란?
-- [ ]  MVP 패턴이란?
-- [ ]  MVVM 패턴이란?
-- [ ]  DataBinding이란?
-- [ ]  Flutter에서 DataBinding
+
 - [ ]  Command 패턴이란?
-- [ ]  MVC, MVP, MVVM 비교 및 나오게 된 흐름
+
 - [ ]  최근 사용해 본 디자인 패턴에 대한 설명과 사용한 이유
 
 ### 연관 내용 질문 리스트
@@ -91,5 +57,5 @@ class Singleton {
 <br></br>
 
 ## 기타
-### 의존성 주입(DI) 패턴이란?
+### 의존성 주입(DI)이란?
 - 메인 모듈이 '직접' 다른 하위 모듈에 대한 의존성을 주기보다는 중간에 의존성 주입자(dependency injector)를 놓아 메인 모듈이 '간접'적으로 의존성을 주입하는 방식
