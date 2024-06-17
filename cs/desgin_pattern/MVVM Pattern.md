@@ -2,7 +2,7 @@
 
 <div align="center"><img src = "https://github.com/NalaJang/TIL/assets/73895803/bdf2f8e9-ca5d-443d-abc8-231c55c40d4e" /></div>
 
-<p></p>
+<br>
 
 [🔗 MVVM 패턴](https://velog.io/@k7120792/Model-View-ViewModel-Pattern)
 
@@ -54,3 +54,15 @@
 - 설계하기가 복잡하다. (Rx,데이터 바인딩에 대한 지식 필요)
 - 뷰 모델이 비대해질 수 있다.
 - 데이터 바인딩으로 인한 메모리 소모가 심해질 수 있다.
+
+<br></br>
+
+## Flutter의 Data Binding
+
+- 전통적인 의미의 데이터 바인딩 매커니즘을 제공하지는 않지만, 상태 관리를 통해 UI와 데이터의 동기화를 구현할 수 있는, 데이터 바인딩과 유사한 기능을 제공하는 다른 방식이 있다.
+
+#### StatefulWidget과 setState()
+#### Provider 패키지
+#### Riverpod
+#### GetX
+#### Bloc/Cubit
